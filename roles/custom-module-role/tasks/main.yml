@@ -1,0 +1,29 @@
+---
+# tasks file for custom-module-role
+- name: sample print
+  debug:
+     msg: "Hello, Zia here!"
+
+
+- name: Use the custom module
+  testmodule:
+    first: 3
+    second: 4
+  register: output
+
+- name: value from the custom module
+  debug:
+    msg: "{{   inventory_hostname  }}"
+
+
+- name: Use the kafka module
+  kafka:
+    data: "To be sent..."
+    topic: test
+    hostname: "192.168.1.115"
+  register: registered
+
+
+- name: Print the registered output
+  debug:
+    msg: "{{  registered    }}"

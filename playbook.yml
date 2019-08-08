@@ -1,0 +1,4 @@
+- hosts: kafkahost
+  # gather_facts: no
+  roles:
+    - custom-module-role
